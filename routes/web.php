@@ -12,6 +12,7 @@ Route::get('/', function () {
 Route::middleware('admin')->group(function () {
     
     Route::get('/profile',[AdminAuthController::class,'profile'])->name('admin_profile');
+    Route::post('/profile',[AdminAuthController::class,'profile_submit'])->name('admin_profile_submit');
 
     Route::get('/logout',[AdminAuthController::class,'logout'])->name('admin_logout');
 
