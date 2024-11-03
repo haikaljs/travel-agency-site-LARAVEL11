@@ -11,12 +11,12 @@ Route::get('/', function () {
 
 Route::middleware('admin')->group(function () {
     
-    Route::get('/profile',[AdminAuthController::class,'profile'])->name('admin_profile');
-    Route::post('/profile',[AdminAuthController::class,'profile_submit'])->name('admin_profile_submit');
+    Route::get('/admin/profile',[AdminAuthController::class,'profile'])->name('admin_profile');
+    Route::post('admin/profile',[AdminAuthController::class,'profile_submit'])->name('admin_profile_submit');
 
     Route::get('/logout',[AdminAuthController::class,'logout'])->name('admin_logout');
 
-    Route::get('/dashboard',[AdminDashboardController::class,'dashboard'])->name('admin_dashboard');
+    Route::get('admin/dashboard',[AdminDashboardController::class,'dashboard'])->name('admin_dashboard');
 
 });
 Route::prefix('admin')->group(function () {
