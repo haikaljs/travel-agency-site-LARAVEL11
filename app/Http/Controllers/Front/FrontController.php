@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Hash;
+use Auth;
 
 
 class FrontController extends Controller
@@ -55,7 +56,7 @@ class FrontController extends Controller
     }
 
     public function registration_verify($email, $token){
-        
+
         $user = User::where('token',$token)->where('email',$email)->first();
         if(!$user) {
             return redirect()->route('login');
@@ -71,6 +72,26 @@ class FrontController extends Controller
 
     public function login(){
         return view('front.login');
+    }
+
+    public function login_submit(Request $request){
+        $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        $check = $request->all();
+        $data = [
+            'email' => $check['email'],
+            'password' => $check['password'],
+            'status' => 1
+        ];
+
+        if (Auth::guard('web')->attempt($data)) {
+            return redirect()->route('user_dashboard')->with('success','Login successfull!');
+        } else {
+            return redirect()->route('login')->with('error', 'The information you entered is incorrect! Please try again!')->withInput();
+        }
     }
 
     public function forget_password(){
