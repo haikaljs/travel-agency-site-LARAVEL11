@@ -1,22 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[FrontController::class,'home'])->name('home');
+Route::get('/about',[FrontController::class,'about'])->name('about');
 
-Route::middleware('admin')->group(function () {
+Route::middleware('admin')->prefix('admin')->group(function () {
     
-    Route::get('/admin/profile',[AdminAuthController::class,'profile'])->name('admin_profile');
-    Route::post('admin/profile',[AdminAuthController::class,'profile_submit'])->name('admin_profile_submit');
+    Route::get('/dashboard',[AdminDashboardController::class,'dashboard'])->name('admin_dashboard');
+    Route::get('/profile',[AdminAuthController::class,'profile'])->name('admin_profile');
+    Route::post('/profile',[AdminAuthController::class,'profile_submit'])->name('admin_profile_submit');
 
-    Route::get('/logout',[AdminAuthController::class,'logout'])->name('admin_logout');
+    Route::get('logout',[AdminAuthController::class,'logout'])->name('admin_logout');
 
-    Route::get('admin/dashboard',[AdminDashboardController::class,'dashboard'])->name('admin_dashboard');
 
 });
 Route::prefix('admin')->group(function () {
