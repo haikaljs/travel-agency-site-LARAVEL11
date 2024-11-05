@@ -4,11 +4,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Forget Password</h2>
+                    <h2>Reset Password</h2>
                     <div class="breadcrumb-container">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Forget Password</li>
+                            <li class="breadcrumb-item active">Reset Password</li>
                         </ol>
                     </div>
                 </div>
@@ -21,18 +21,21 @@
             <div class="row justify-content-center">
                 <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
                     <div class="login-form">
-                        <form action="{{ route('forget_password_submit') }}" method="POST">
+                        <form action="{{ route('reset_password_submit', [$token, $email]) }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="" class="form-label">Email Address</label>
-                                <input type="text" name="email" class="form-control">
+                                <label for="" class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Retype Password</label>
+                                <input type="password" name="confirm_password" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary bg-website">
                                     Submit
                                 </button>
                         </form>
-                        <a href="{{ route('login') }}" class="primary-color">Back to Login Page</a>
                     </div>
                 </div>
             </div>
