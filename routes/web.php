@@ -55,6 +55,8 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::post('/profile',[AdminAuthController::class,'profile_submit'])->name('admin_profile_submit');
 
     Route::get('/slider/index',[AdminSliderController::class,'index'])->name('admin_slider_index');
+    Route::get('/slider/create',[AdminSliderController::class,'create'])->name('admin_slider_create');
+    Route::post('/slider/store',[AdminSliderController::class,'store'])->name('admin_slider_store');
 
     Route::get('logout',[AdminAuthController::class,'logout'])->name('admin_logout');
 

@@ -60,8 +60,6 @@ class AdminAuthController extends Controller
 
         if($request->photo){
 
-           
-
             $request->validate([
                 'photo' => ['required', 'image', 'mimes:jpg,jpeg,png,gif', 'max:5120'], // 5MB = 5120KB
             ], [
