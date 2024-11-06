@@ -1,0 +1,12 @@
+{
+    "tabWidth": 2,
+    "useTabs": false,
+    "overrides": [
+        {
+            "files": "*.blade.php",
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
+}

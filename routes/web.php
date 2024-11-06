@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
 
@@ -52,6 +53,8 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/dashboard',[AdminDashboardController::class,'dashboard'])->name('admin_dashboard');
     Route::get('/profile',[AdminAuthController::class,'profile'])->name('admin_profile');
     Route::post('/profile',[AdminAuthController::class,'profile_submit'])->name('admin_profile_submit');
+
+    Route::get('/slider/index',[AdminSliderController::class,'index'])->name('admin_slider_index');
 
     Route::get('logout',[AdminAuthController::class,'logout'])->name('admin_logout');
 
