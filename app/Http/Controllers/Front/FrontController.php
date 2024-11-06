@@ -146,4 +146,9 @@ class FrontController extends Controller
 
         return redirect()->route('login')->with('success','Password reset is successful. You can login now.');
     }
+
+    public function logout(){
+        Auth::guard('web')->logout();
+        return redirect()->route('login')->with('success', 'Logout is successful!');    
+    }
 }

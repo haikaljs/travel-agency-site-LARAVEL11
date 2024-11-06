@@ -178,7 +178,7 @@
                 iziToast.show({
                     message: `{!! $error !!}`,
                     color: 'red',
-                    position: 'topRight'
+                    position: 'topCenter'
                 });
             </script>
         @endforeach
@@ -189,7 +189,7 @@
             iziToast.show({
                 message: `{!! session('success') !!}`,
                 color: 'green',
-                position: 'topRight'
+                position: 'topCenter'
             });
         </script>
     @endif
@@ -199,7 +199,7 @@
             iziToast.show({
                 message: `{!! session('error') !!}`,
                 color: 'red',
-                position: 'topRight'
+                position: 'topCenter'
             });
         </script>
     @endif
