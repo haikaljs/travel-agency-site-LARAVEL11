@@ -7,7 +7,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Edit Profile</h1>
+                <h1>Create Slider</h1>
             </div>
             <div class="section-body">
                 <div class="row">
@@ -32,8 +32,7 @@
 
                                     <div class="mb-3">
                                         <label class="form-label">Text *</label>
-                                        <textarea type="text" class="form-control h_100" name="text" value="{{ old('text') }}">
-                                        </textarea>
+                                        <textarea name="text" id="" cols="30" rows="100" class="form-control w-100 h_100"></textarea>
                                     </div>
 
                                     <div class="mb-3">
