@@ -2,23 +2,26 @@
 
 namespace App\Http\Controllers\Front;
 
+use Auth;
+use Hash;
 use App\Models\User;
 use App\Mail\Websitemail;
+use App\Models\WelcomeItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
-use Hash;
-use Auth;
 
 
 class FrontController extends Controller
 {
     public function home(){
-        return view('front.home');
+        $welcome_item = WelcomeItem::where('id', 1)->first();
+        return view('front.home', compact('welcome_item'));
     }
 
     public function about(){
-        return view('front.about');
+        $welcome_item = WelcomeItem::where('id', 1)->first();
+        return view('front.about',compact('welcome_item'));
     }
 
     public function registration(){
