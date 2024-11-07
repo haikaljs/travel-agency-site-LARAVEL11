@@ -6,6 +6,7 @@ use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminWelcomeItemController;
 
 
 
@@ -60,6 +61,14 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/slider/edit/{id}',[AdminSliderController::class,'edit'])->name('admin_slider_edit');
     Route::post('/slider/update/{id}',[AdminSliderController::class,'update'])->name('admin_slider_update');
     Route::get('/slider/delete/{id}',[AdminSliderController::class,'delete'])->name('admin_slider_delete');
+
+
+    Route::get('/welcome-item/index',[AdminWelcomeItemController::class,'index'])->name('admin_welcome_item_index');
+
+    Route::post('/welcome-item/update/{id}',[AdminWelcomeItemController::class,'update'])->name('admin_welcome_item_update');
+
+
+
 
     Route::get('logout',[AdminAuthController::class,'logout'])->name('admin_logout');
 
